@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MikameO — projects</title>
+<meta name="description" content="MikameO's projects. NanoTrasen ChemDB (Space Station Recipes) — a free chemistry, medicine, botany and map reference for Space Station 14 across 21 community forks.">
+<meta name="author" content="MikameO">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mikameo.github.io/">
+<meta property="og:title" content="MikameO — projects">
+<meta property="og:description" content="NanoTrasen ChemDB — a free Space Station 14 reference: reagents, reactions, What Heals?, botany, station maps, fork diff. RU/EN, works offline.">
+<meta property="og:image" content="https://mikameo.github.io/space-station-recipes/og-image.png?v=2">
+<meta property="og:url" content="https://mikameo.github.io/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#06090f">
+<link rel="icon" type="image/svg+xml" href="https://mikameo.github.io/space-station-recipes/favicon.svg?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Chakra+Petch:wght@400;600;700&family=Oxanium:wght@600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "url": "https://mikameo.github.io/",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "MikameO",
+    "url": "https://mikameo.github.io/",
+    "sameAs": ["https://github.com/MikameO"]
+  },
+  "hasPart": {
+    "@type": "WebApplication",
+    "name": "NanoTrasen ChemDB",
+    "alternateName": "Space Station Recipes",
+    "url": "https://mikameo.github.io/space-station-recipes/",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Any"
+  }
+}
+</script>
+<style>
+  :root {
+    --hull: #06090f;
+    --panel: #0f1520;
+    --panel-raised: #141c2a;
+    --line: #1f2a3d;
+    --phosphor: #39ff85;
+    --phosphor-glow: rgba(57,255,133,0.12);
+    --amber: #ffb627;
+    --cyan: #00e5ff;
+    --text-bright: #e8ecf4;
+    --text: #b6bfd0;
+    --text-dim: #7a8499;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(0,229,255,0.07), transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, rgba(57,255,133,0.06), transparent 60%),
+      var(--hull);
+    color: var(--text);
+    font: 16px/1.6 "Chakra Petch", system-ui, sans-serif;
+    min-height: 100vh;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 32px 16px 48px; }
+
+  header { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .handle { font: 700 20px/1 "Oxanium", sans-serif; color: var(--text-bright); letter-spacing: .04em; text-decoration: none; }
+  .handle span { color: var(--phosphor); }
+  .lang { display: flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .lang button {
+    background: transparent; color: var(--text-dim); border: 0; padding: 6px 10px;
+    font: 13px "Share Tech Mono", monospace; cursor: pointer;
+  }
+  .lang button[aria-pressed="true"] { background: var(--panel-raised); color: var(--phosphor); }
+
+  .intro { margin: 56px 0 32px; }
+  .intro h1 { font: 700 clamp(28px, 5vw, 40px)/1.15 "Oxanium", sans-serif; color: var(--text-bright); margin: 0 0 12px; }
+  .intro p { margin: 0; max-width: 60ch; }
+  .kicker { font: 13px "Share Tech Mono", monospace; color: var(--phosphor); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 12px; }
+
+  .card {
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 0;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
+  }
+  .card .shot { display: block; background: #000; }
+  .card .shot img { display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 1200 / 630; }
+  .card .body { padding: 24px; display: flex; flex-direction: column; gap: 14px; }
+  .card h2 { font: 700 24px/1.2 "Oxanium", sans-serif; color: var(--text-bright); margin: 0; }
+  .card .sub { font: 13px "Share Tech Mono", monospace; color: var(--text-dim); margin-top: -8px; }
+  .card p { margin: 0; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 0; list-style: none; }
+  .tags li {
+    font: 12px "Share Tech Mono", monospace; color: var(--cyan);
+    border: 1px solid rgba(0,229,255,0.25); background: rgba(0,229,255,0.06);
+    padding: 2px 8px; border-radius: 4px;
+  }
+  .stats { display: flex; gap: 20px; flex-wrap: wrap; font: 13px "Share Tech Mono", monospace; color: var(--text-dim); }
+  .stats b { color: var(--amber); font-weight: 400; font-size: 18px; display: block; }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+    padding: 10px 16px; border-radius: 8px; font-weight: 600;
+    border: 1px solid var(--line); color: var(--text-bright);
+    transition: border-color .15s, background .15s;
+  }
+  .btn:hover { border-color: var(--text-dim); }
+  .btn.primary { background: var(--phosphor); color: #04130a; border-color: var(--phosphor); box-shadow: 0 0 24px var(--phosphor-glow); }
+  .btn.primary:hover { background: #6effa5; }
+  .btn:focus-visible, .lang button:focus-visible, .handle:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+
+  footer { margin-top: 48px; font-size: 14px; color: var(--text-dim); display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between; }
+  footer a { color: var(--text); }
+
+  [data-lang] { display: none; }
+  html[lang="en"] [data-lang="en"], html[lang="ru"] [data-lang="ru"] { display: revert; }
+
+  @media (max-width: 720px) {
+    .card { grid-template-columns: 1fr; }
+    .intro { margin: 40px 0 24px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="handle" href="https://github.com/MikameO">Mikame<span>O</span></a>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-set-lang="en">EN</button>
+      <button type="button" data-set-lang="ru">RU</button>
+    </div>
+  </header>
+
+  <section class="intro">
+    <div class="kicker" data-lang="en">Projects</div>
+    <div class="kicker" data-lang="ru">Проекты</div>
+    <h1 data-lang="en">Tools for Space Station 14 players</h1>
+    <h1 data-lang="ru">Инструменты для игроков Space Station 14</h1>
+    <p data-lang="en">I build free reference tools for SS14 — data is read straight from each server fork's repository, so recipes match what actually works in the round.</p>
+    <p data-lang="ru">Делаю бесплатные справочники по SS14. Данные берутся прямо из репозиториев форков, поэтому рецепты совпадают с тем, что реально работает в раунде.</p>
+  </section>
+
+  <article class="card">
+    <a class="shot" href="https://mikameo.github.io/space-station-recipes/" tabindex="-1" aria-hidden="true">
+      <img src="https://mikameo.github.io/space-station-recipes/og-image.png?v=2" alt="" width="1200" height="630" loading="eager">
+    </a>
+    <div class="body">
+      <h2>NanoTrasen ChemDB</h2>
+      <div class="sub">Space Station Recipes</div>
+      <p data-lang="en">Chemistry reference for Space Station 14: every reagent and reaction, a batch calculator, a “What Heals?” medicine finder, craft trees, botany, station maps and a fork-by-fork diff. Works offline.</p>
+      <p data-lang="ru">Справочник по химии Space Station 14: все реагенты и реакции, калькулятор замесов, «Чем лечить?», деревья крафта, ботаника, карты станций и сравнение форков. Работает офлайн.</p>
+      <div class="stats">
+        <span><b>1387</b><span data-lang="en">reagents</span><span data-lang="ru">реагентов</span></span>
+        <span><b>1104</b><span data-lang="en">reactions</span><span data-lang="ru">реакций</span></span>
+        <span><b>21</b><span data-lang="en">forks</span><span data-lang="ru">форк</span></span>
+      </div>
+      <ul class="tags" aria-label="Sections">
+        <li data-lang="en">Reagents</li><li data-lang="ru">Реагенты</li>
+        <li data-lang="en">Calculator</li><li data-lang="ru">Калькулятор</li>
+        <li data-lang="en">What Heals?</li><li data-lang="ru">Чем лечить?</li>
+        <li data-lang="en">Botany</li><li data-lang="ru">Ботаника</li>
+        <li data-lang="en">Maps</li><li data-lang="ru">Карты</li>
+        <li data-lang="en">Tactical map</li><li data-lang="ru">Тактическая карта</li>
+        <li data-lang="en">Fork Diff</li><li data-lang="ru">Сравнение форков</li>
+      </ul>
+      <div class="actions">
+        <a class="btn primary" href="https://mikameo.github.io/space-station-recipes/">
+          <span data-lang="en">Open ChemDB</span><span data-lang="ru">Открыть ChemDB</span> →
+        </a>
+        <a class="btn" href="https://github.com/MikameO/space-station-recipes">
+          <span data-lang="en">Source code</span><span data-lang="ru">Исходный код</span>
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <footer>
+    <span data-lang="en">Fan project, not affiliated with Space Wizards Federation.</span>
+    <span data-lang="ru">Фанатский проект, не связан со Space Wizards Federation.</span>
+    <a href="https://github.com/MikameO">github.com/MikameO</a>
+  </footer>
+</div>
+<script>
+  (function () {
+    var root = document.documentElement;
+    function apply(lang) {
+      root.lang = lang;
+      var btns = document.querySelectorAll('[data-set-lang]');
+      for (var i = 0; i < btns.length; i++) btns[i].setAttribute('aria-pressed', btns[i].getAttribute('data-set-lang') === lang);
+    }
+    var saved = null;
+    try { saved = localStorage.getItem('lang'); } catch (e) {}
+    var nav = (navigator.languages && navigator.languages[0]) || navigator.language || 'en';
+    apply(saved || (/^(ru|uk|be|kk)\b/i.test(nav) ? 'ru' : 'en'));
+    document.querySelector('.lang').addEventListener('click', function (e) {
+      var lang = e.target.getAttribute && e.target.getAttribute('data-set-lang');
+      if (!lang) return;
+      apply(lang);
+      try { localStorage.setItem('lang', lang); } catch (err) {}
+    });
+  })();
+</script>
+</body>
+</html>
